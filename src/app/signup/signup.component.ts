@@ -22,10 +22,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      name: ['null', [Validators.required]],
-      email: ['null', [Validators.required, Validators.email]],
-      password: ['null', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['null', [Validators.required]]
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required]]
     });
   }
 
@@ -38,17 +38,17 @@ export class SignupComponent implements OnInit {
     const confirmPassword = this.signupForm.get('confirmPassword')?.value;
 
     if(password !== confirmPassword){
-      this.snackBar.open('Passwords do not match.','close',{duration:5000,panelClass:'error-snackbar'});
+      this.snackBar.open('Las contraseñas no coinciden!!.','Cerrar',{duration:5000,panelClass:'error-snackbar'});
       return;
     }
 
     this.authService.register(this.signupForm.value).subscribe(
       (response) =>{
-        this.snackBar.open('Sign up successful!', 'close',{duration:5000});
+        this.snackBar.open('Registro Exitoso!', 'Cerrar',{duration:5000});
         this.router.navigateByUrl("/login");
       },
       (error) =>{
-        this.snackBar.open('Sign up failed. Please try again.', 'close',{duration:5000, panelClass : 'error-snackbar'});
+        this.snackBar.open('Registro fallido. Intentelo de nuevo', 'Cerrar',{duration:5000, panelClass : 'error-snackbar'});
       }
     )
   }

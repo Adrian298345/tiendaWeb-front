@@ -32,6 +32,7 @@ import { PostProductFaqComponent } from './components/post-product-faq/post-prod
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { OrderByStatusComponent } from './components/analytics/order-by-status/order-by-status.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { OrderByStatusComponent } from './components/analytics/order-by-status/o
     MatNativeDateModule,
     MatDatepickerModule,
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ]
 })
 export class AdminModule { }
